@@ -28,9 +28,9 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
 // load the core dependency
-require('core.php');
+require_once('core.php');
 // load the plugin updater client
-require('update-client.php');
+require_once('update-client.php');
 
 if (!defined('ABSPATH')) exit;
 

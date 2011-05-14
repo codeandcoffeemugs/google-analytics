@@ -28,4 +28,4 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
 // the only thing we do in this file is load the core
-require('core.php');
+require_once('core.php');
