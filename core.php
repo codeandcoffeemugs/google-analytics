@@ -19,9 +19,6 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 if (!defined('ABSPATH')) exit;
 
-// don't allow the plugin to be loaded twice - hedges against double installations
-if (class_exists(/*@PLUGIN_LITE_CLASS@*/ 'PluginName')) return;
-
 /**
  * This PHP class is a namespace for the free version of your plugin. Bear in
  * mind that what you program here (and/or include here) is not only the 
@@ -43,7 +40,7 @@ class /*@PLUGIN_LITE_CLASS@*/ PluginName {
    */
   static function load() {
     if (!self::$instance) {
-      self::$instance = new /*@PLUGIN_LITE_CLASS*/ PluginName();
+      self::$instance = new /*@PLUGIN_LITE_CLASS@*/ PluginName();
       
       #
       # Establish the run-time path for this plugin.
