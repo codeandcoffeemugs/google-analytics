@@ -33,17 +33,17 @@ You'll want to consider registering your plugin's namespace on three different s
 
 Did you know you can use Git to manage subversion repositories? Yes, you can!
 
-    ~ #> git svn clone http:// <your-plugin> --username
-    ~ #> cd <your-plugin>
-    your-plugin #> git config --add svn-remote.tags.url http:// 
-    your-plugin #> git config --add svn-remote.tags.fetch :refs/remotes/tags
+    [~] git svn clone http:// <your-plugin> --username
+    [~] cd <your-plugin>
+    [your-plugin] git config --add svn-remote.tags.url http:// 
+    [your-plugin]  git config --add svn-remote.tags.fetch :refs/remotes/tags
 
 ### Connect our project to your subversion checkout
 
 This will pull our plugin skeleton into your project.
 
-    your-plugin #> git remote add wpapp git@github.com:collegeman/wpapp.git
-    your-plugin #> git pull wpapp master
+    [your-plugin] git remote add wpapp git@github.com:collegeman/wpapp.git
+    [your-plugin] git pull wpapp master
     
 ### Connect your GitHub project
 
@@ -51,8 +51,8 @@ Very important: your GitHub project should **not** be a fork of our own. You'll
 want your plugins to have their own names. They shall be forks of this project in
 *spirit* alone.
 
-    your-plugin #> git remote add origin git@github.com:<username>/<your-plugin>.git
-    your-plugin #> 
+    [your-plugin] git remote add origin git@github.com:<username>/<your-plugin>.git
+    [your-plugin] 
 
 ## Development
 
