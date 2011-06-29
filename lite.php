@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: 
+Plugin Name: Plugin Name
 Plugin URI: 
 Description: 
 Author: 

@@ -25,37 +25,25 @@ if (!defined('ABSPATH')) exit;
  * the free plugin itself, but is also the basis for the pro version - the core
  * functionality, if you will.
  */
-class /*@PLUGIN_LITE_CLASS@*/ PluginName {
+class PluginName {
   
   // holds the singleton instance of your plugin's core
   static $instance;
   // holds a reference to the pro version of the plugin
   static $pro;
-  // the path to this plugin
-  static $dir_path;
   
   /**
    * Get the singleton instance of this plugin's core, creating it if it does
    * not already exist.
    */
   static function load() {
-    if (!self::$instance) {
-      self::$instance = new /*@PLUGIN_LITE_CLASS@*/ PluginName();
-      
-      #
-      # Establish the run-time path for this plugin.
-      #
-      $dir_path = explode(DIRECTORY_SEPARATOR, __FILE__);
-      array_pop($dir_path);
-      self::$dir_path = implode(DIRECTORY_SEPARATOR, $dir_path);
-    }
-    return self::$instance;
+    return self::$instance ? self::$instance : ( self::$instance = new PluginName() );
   }
   
   /**
    * Create a new instance of this plugin's core. There should only ever
    * be one instance of a plugin, so we make the constructor private, and
-   * instead ask all other parts of WordPress to call ::load().
+   * instead ask all other parts of WordPress to call PluginName::load().
    */
   private function __construct() {
     
@@ -63,8 +51,17 @@ class /*@PLUGIN_LITE_CLASS@*/ PluginName {
     # All plugins tend to need these basic actions.
     #
     add_action('init', array($this, 'init'), 11, 1);
-    add_action("{self::$dir_path}/lite.php_activate", array($this, 'activate'));
-    add_action("{self::$dir_path}/lite.php_deactivate", array($this, 'deactivate'));
+    
+    #
+    # Discover this file's path
+    #
+    $parts = explode(DIRECTORY_SEPARATOR, __FILE__);
+    $fn = array_pop($parts);
+    $fd = ($fd = array_pop($parts) != 'plugins' ? $fd : '');
+    $file = $fd ? "{$fd}/{$fn}" : $fn;
+    
+    add_action("activate_{$fd}/lite.php", array($this, 'activate'));
+    add_action("deactivate_{$fd}/lite.php", array($this, 'deactivate'));
     
     # 
     # Add actions and filters here that should be called before the "init" action
@@ -108,4 +105,4 @@ class /*@PLUGIN_LITE_CLASS@*/ PluginName {
   
 }
 
-/*@PLUGIN_LITE_CLASS@*/ PluginName::load();
+PluginName::load();

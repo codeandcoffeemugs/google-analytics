@@ -1,7 +1,7 @@
 === Plugin Name ===
-Contributors: markjaquith, mdawaffe (this should be a list of wordpress.org userid's)
-Donate link: http://example.com/
-Tags: comments, spam
+Contributors: aaroncollegeman
+Donate link: http://www.getwpapps.com
+Tags: app
 Requires at least: 3.0
 Tested up to: 3.0
 Stable tag: 

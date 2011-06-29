@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: 
+Plugin Name: Plugin Name Pro
 Plugin URI: 
 Description: 
 Author: 
@@ -29,15 +29,13 @@ Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
 // load the core dependency
 require_once('core.php');
-// load the plugin updater client
-require_once('update-client.php');
 
 if (!defined('ABSPATH')) exit;
 
 /**
  * This PHP class is a namespace for the pro version of your plugin. 
  */
-class /*@PLUGIN_PRO_CLASS@*/ PluginNamePro {
+class PluginNamePro {
   
   // holds the singleton instance of your plugin's core
   static $instance;
@@ -47,10 +45,7 @@ class /*@PLUGIN_PRO_CLASS@*/ PluginNamePro {
    * not already exist.
    */
   static function load() {
-    if (!self::$instance) {
-      self::$instance = new /*@PLUGIN_PRO_CLASS@*/ PluginNamePro();
-    }
-    return self::$instance;
+    return self::$instance ? self::$instance : ( self::$instance = new PluginNamePro() );
   }
   
   private function __construct() {
@@ -62,22 +57,13 @@ class /*@PLUGIN_PRO_CLASS@*/ PluginNamePro {
     #
     $parts = explode(DIRECTORY_SEPARATOR, __FILE__);
     $fn = array_pop($parts);
-    $fd = array_pop($parts);
-    $file = $fd != 'plugins' ? "{$fd}/{$fn}" : $fn;
-    
-    #
-    # Setup the update client to be able to receive updates from getwpapps.com
-    #
-    PluginUpdateClient::init(array(
-      'path' => __FILE__,
-      'plugin' => /*@PLUGIN_PRO_SLUG@*/ 'pro', 
-      'file' => $file
-    ));
+    $fd = ($fd = array_pop($parts) != 'plugins' ? $fd : '');
+    $file = $fd ? "{$fd}/{$fn}" : $fn;
   }
   
   function init() {
     // attach a reference to the pro version onto the lite version
-    /*@PLUGIN_LITE_CLASS@*/ PluginName::$pro = $this;
+    PluginName::$pro = $this;
     
     #
     # Use your own custom actions and filters to override and expand the
@@ -87,4 +73,4 @@ class /*@PLUGIN_PRO_CLASS@*/ PluginNamePro {
   
 }
 
-/*@PLUGIN_PRO_CLASS@*/ PluginNamePro::load();
+PluginNamePro::load();

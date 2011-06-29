@@ -1,31 +1,45 @@
-Make sure to read the Getting Started guide below, and be off and running on your project
-in 30 seconds flat.
-
-This base WordPress plugin is offered by getwpapps.com - a place for WordPress developers
+This base WordPress plugin is offered by getwpapps.com: a place for WordPress developers
 to promote, support, and get paid for their work. 
 
-Our plugin architecture eases one aspect of promoting your plugin - committing it to the
-WordPress.org plugin registry - by showing you how to split your plugin into *lite* and 
-*pro* versions, and by scripting deployment into WordPress' Subversion repository.
+Make sure to read the Getting Started guide below, and be off and running on your project
+in 30 seconds flat. Our plugin architecture splits your plugin into two versions: 
+a *lite* version (which you will promote), and a *pro* edition (which you will sell). 
+This blueprint shows you how.
 
 ## Getting Started
 
-**Step 1** Prepare your computer.
+From now on, you'll be using Git to manage your source. 
+
+### Prepare your computer
 
 You'll need to setup [Git and your GitHub account](http://help.github.com/). 
 
-**Step 2** Create accounts to host your plugin. 
+### Create accounts to host your plugin
 
 You'll want to consider registering your plugin's namespace on three different sites:
 
 1. [wordpress.org](http://wordpress.org/extend/plugins/add/) - where you'll promote the *lite* version of your plugin
+
 2. [github.com](https://github.com/repositories/new) - where you'll be hosting your source code (the *best* place to promote
-   open source, especially when [required to do so](http://wordpress.org/extend/plugins/about/) -
-   refer to the part about being required to use a GPLv2-compatible license)
+   open source, especially when [required to do so](http://wordpress.org/extend/plugins/about/) 
+   (refer to the part about being required to use a GPLv2-compatible license)
+   
 3. [getwpapps.com](http://getwpapps.com/developers) - Coming soon: where we hope you'll be selling licenses to your plugin,
    and supporting the community that forms around your awesome software!
 
-**Step 2** Clone this project.
+### Clone your WordPress.org subversion repository
+
+Did you know you can use Git to manage subversion repositories? Yes, you can!
+
+    ~ #> git svn clone http:// <your-plugin> --username
+
+### Connect your subversion checkout to this project
+
+    ~ #> cd your-plugin
+    your-plugin #> git remote add wpapp git@github.com:<username>/<your-plugin>.git
+
+
+This is where the magic happens.
 
     ~ #> git clone git@github.com:collegeman/wpapp.git your-plugin
     ~ #> cd your-plugin
