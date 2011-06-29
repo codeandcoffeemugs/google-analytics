@@ -1,10 +1,12 @@
 This base WordPress plugin is offered by [The App Store](http://getwpapps.com/developers) for WordPress: 
 a place for WordPress developers to promote, support, and get paid for their work. 
 
-Make sure to read the Getting Started guide below, and be off and running on your project
-in 30 seconds flat. Our plugin architecture splits your plugin into two versions: 
-a *lite* version (which you will promote), and a *pro* edition (which you will sell). 
+Our plugin architecture teaches you to split your plugins into two versions: 
+a *lite* version (which you will use for promotion), and a *pro* edition (which you will sell). 
 This blueprint shows you how.
+
+Make sure to read the Getting Started guide below, and be off and running on your project
+in less than 5 minutes!
 
 ## Getting Started
 
