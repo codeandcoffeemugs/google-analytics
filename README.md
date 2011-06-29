@@ -22,7 +22,7 @@ You'll want to consider registering your plugin's namespace on three different s
 
 1. [wordpress.org](http://wordpress.org/extend/plugins/add/) - where you'll promote the *lite* version of your plugin
 
-2. [github.com](https://github.com/repositories/new) - where you'll be hosting your source code (the *best* place to promote
+2. [github.com](https://github.com/repositories/new) - where you'll be hosting your source code: the *best* place to promote
    open source, especially when [required to do so](http://wordpress.org/extend/plugins/about/) 
    (refer to the part about being required to use a GPLv2-compatible license)
    
