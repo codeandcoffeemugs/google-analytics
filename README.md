@@ -24,50 +24,34 @@ You'll want to consider registering your plugin's namespace on three different s
    open source, especially when [required to do so](http://wordpress.org/extend/plugins/about/) 
    (refer to the part about being required to use a GPLv2-compatible license)
    
-3. [getwpapps.com](http://getwpapps.com/developers) - Coming soon: where we hope you'll be selling licenses to your plugin,
-   and supporting the community that forms around your awesome software!
+3. [getwpapps.com](http://getwpapps.com/developers) - Coming soon: where we hope you'll be selling the distribution of
+   the pro version of your plugin, and supporting the community that forms around your awesome software!
 
 ### Clone your WordPress.org subversion repository
 
 Did you know you can use Git to manage subversion repositories? Yes, you can!
 
     ~ #> git svn clone http:// <your-plugin> --username
+    ~ #> cd <your-plugin>
+    your-plugin #> git config --add svn-remote.tags.url http:// 
+    your-plugin #> git config --add svn-remote.tags.fetch :refs/remotes/tags
 
-### Connect your subversion checkout to this project
+### Connect our project to your subversion checkout
 
-    ~ #> cd your-plugin
-    your-plugin #> git remote add wpapp git@github.com:<username>/<your-plugin>.git
+This will pull our plugin skeleton into your project.
 
-
-This is where the magic happens.
-
-    ~ #> git clone git@github.com:collegeman/wpapp.git your-plugin
-    ~ #> cd your-plugin
+    your-plugin #> git remote add wpapp git@github.com:collegeman/wpapp.git
+    your-plugin #> git pull wpapp master
     
-Or, if you have a master project that groups your plugins and themes together, setup a new submodule
+### Connect your GitHub project
 
-    ~ #> git submodule add git@github.com:collegeman/wpapp.git your-plugin
-    ~ #> cd your-plugin
-    
-**Step 3** Rename the `plugin-name` folder to a name of your choosing. To ensure that it's easy for you
-to pull updates from this project, you'll want to make this change using the `git mv` command:
+Very important: your GitHub project should **not** be a fork of our own. You'll
+want your plugins to have their own names. They shall be forks of this project in
+*spirit* alone.
 
-    your-plugin #> git mv plugin-name your-plugin
-    
-**Step 4** Update the make file, `make.php`
+    your-plugin #> git remote add origin git@github.com:<username>/<your-plugin>.git
+    your-plugin #> 
 
-Here you're going to configure your plugin's meta data - what you normally would fill into the plugin
-file, we do for you from this configuration script. The file's documentation explains each setting.
-    
-**Step 5** Rename our remote, and add your project's GitHub remote.
-  
-    your-plugin #> git remote rename origin wpapp
-    your-plugin #> git remote add origin git@github.com:you/your-plugin.git
-    your-plugin #> git push origin master
-    
-Then, reconfigure your master branch so that your GitHub project is the default target of
-push/pull operations (ease-of-use, FTW):
-    
-    your-plugin #> git branch --set-upstream master origin/master
+## Development
 
 
